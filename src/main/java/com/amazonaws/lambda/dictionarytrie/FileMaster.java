@@ -2,16 +2,15 @@ package com.amazonaws.lambda.dictionarytrie;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.net.URISyntaxException;
 
 public class FileMaster {
 	
+	//Opens up BuferedWriter to allow writing to a file
 	public static BufferedWriter write(String fileName) {
 		try {
             FileOutputStream outputStream = new FileOutputStream(fileName + ".txt");
@@ -22,6 +21,7 @@ public class FileMaster {
         }
 	}
 	
+	//Opens up BuferedReader to allow reading a file
 	public static BufferedReader read(String fileName) {
 		try {
 			FileInputStream inputS = new FileInputStream("/var/task/resources/" +fileName + ".txt");

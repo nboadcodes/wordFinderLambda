@@ -18,10 +18,10 @@ public class RequestHandlerTest {
 
 	    @BeforeClass
 	    public static void createInput() throws IOException {
-	        // TODO: set up your sample input object here.
+	        //***JSON Object no longer appropriate for testing the Input Handler***
 	        JSONObject temp = new JSONObject();
 	        temp.put("letters", "sadbn");
-	        temp.put("required","b");
+	        temp.put("required","");
 	        temp.put("minlength",4);
 	        temp.put("inputtype","serialized");
 	        temp.put("inputsource","serialization");
@@ -31,10 +31,7 @@ public class RequestHandlerTest {
 
 	    private Context createContext() {
 	        TestContext ctx = new TestContext();
-
-	        // TODO: customize your context here if needed.
 	        ctx.setFunctionName("Your Function Name");
-
 	        return ctx;
 	    }
 
@@ -45,7 +42,6 @@ public class RequestHandlerTest {
 
 	        APIGatewayProxyResponseEvent output = handler.handleRequest(input, ctx);
 	        System.out.println(output);
-	        // TODO: validate output here if needed.
 	        Assert.assertEquals("Hello from Lambda!", output);
 	    }
 }

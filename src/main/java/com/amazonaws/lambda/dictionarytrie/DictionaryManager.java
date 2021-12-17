@@ -6,18 +6,9 @@ import java.io.IOException;
 
 public class DictionaryManager {
 
-	/*
-	public static void main(String[] args) throws IOException {
-		saveDictionary("words", "serialization");
-		TreeNode root;
-		try {
-			root = loadDictionary("serialization");
-			root.findNYTCombinations("caploht".toCharArray(), "", "t");
-		} catch (IOException e) {}
-		
-	}	
-	*/
-	
+	//Serializes an existing trie that stores a dictionary
+	//root: the root of a dictionary trie
+	//writeTo: the filename that the serialized dictionary will be written to
 	public static void serializeDictionary(TreeNode root, String writeTo){
 		try {
 			BufferedWriter bw = FileMaster.write(writeTo);
@@ -26,19 +17,9 @@ public class DictionaryManager {
 		} catch (IOException e) {}
 	}
 	
-	public static TreeNode createDictionary(String readFrom){
-		try {
-			BufferedReader br = FileMaster.read(readFrom);
-			TreeNode root = new TreeNode();
-			String str;
-			while((str = br.readLine()) != null) 
-				root.addString(str.toLowerCase().toCharArray(), 0);
-			return root;
-			
-		} catch (IOException e) {return null;}
-		
-	}
-	
+	//Constructs a dictionary storing trie from a serialization file
+	//readFrom: the filename of a file that contains a serialized trie
+	//Easiest to get serialization file from serializeDictionary() above
 	public static TreeNode deserializeDictionary(String readFrom){
 		try {
 			TreeNode root = new TreeNode();
@@ -54,5 +35,19 @@ public class DictionaryManager {
 			return null;
 		}
 	}
-	
+
+	//Creates a trie structure to store a dictionary
+	//readFrom: file name of a file that contains a list of newline separated words
+	public static TreeNode createDictionary(String readFrom){
+		try {
+			BufferedReader br = FileMaster.read(readFrom);
+			TreeNode root = new TreeNode();
+			String str;
+			while((str = br.readLine()) != null) 
+				root.addString(str.toLowerCase().toCharArray(), 0);
+			return root;
+			
+		} catch (IOException e) {return null;}
+		
+	}
 }
