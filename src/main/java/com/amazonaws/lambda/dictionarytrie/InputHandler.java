@@ -49,6 +49,7 @@ public class InputHandler implements RequestHandler<Object, APIGatewayProxyRespo
 	    	iType = (String) input.get("inputtype");
 	    	iSource = (String) input.get("inputsource");
 	    	
+	    	context.getLogger().log("NEWEST VERSION!!!!!!!!");
 	    	context.getLogger().log("letters: " + letters);
 	    	context.getLogger().log("required: " + req);
 	    	context.getLogger().log("minlength: " + minlength);
